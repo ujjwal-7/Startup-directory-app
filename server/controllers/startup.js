@@ -1,4 +1,3 @@
-const fs = require('fs');
 const startups = require('../startups');
 const getFilteredData = require('../utils/getFilteredData');
 const searchStartupCheck = require('../utils/searchStartupCheck');
@@ -24,54 +23,6 @@ const getAllStartups = (req, res) => {
 
 }
 
-const addStartup = (req, res) => {
-
-    const { startupName, date, industryVertical, subVertical, cityLocation, investorsName, investmentType, funding } = req.body;
-
-    if(!startupName || !date || !industryVertical || !subVertical || !cityLocation || !investorsName || !investmentType || !funding) {
-        return res.status(400).json({message: 'All fields are required!'})
-    }
-
-    const newStartup = {
-        
-        Date: date,
-        StartupName: startupName,
-        IndustryVertical: industryVertical,
-        SubVertical: subVertical,
-        CityLocation: cityLocation,
-        InvestorsName: investorsName,
-        InvestmentType: investmentType,
-        AmountInUSD: funding
-    }
-    
-    fs.readFile('/temp/startups.json', (e, data) => {
-
-        if(e) {
-            return res.status(500).json({message: 'Interval server error'});
-        }
-
-        const startups = JSON.parse(data);
-        
-        const startupExists = startups.some((startup) => {
-            return startup.StartupName.toLowerCase() ===  newStartup.StartupName.toLowerCase();
-        });
-
-        if(startupExists) {
-            return res.status(400).json({ message: 'Startup with the same name already exists!' });
-        }
-
-        startups.push(newStartup);
-        fs.writeFile('/temp/startups.json', JSON.stringify(startups), (e) => {
-
-            if(e) {
-                return res.status(500).json({message: 'Interval server error'});
-            }
-
-            return res.status(200).json({ message: 'Startup Added successfully' });
-
-        });
-    });
-}
 
 const searchStartup = (req, res) => {
 
@@ -105,6 +56,5 @@ const searchStartup = (req, res) => {
 
 module.exports = {
     getAllStartups,
-    addStartup,
     searchStartup
 }

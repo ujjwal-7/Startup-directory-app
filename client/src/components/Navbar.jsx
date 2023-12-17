@@ -36,12 +36,6 @@ const Navbar = () => {
                     />
                     <button onClick={() => handleSearchQuery("search")}><IoIosSearch size={24}/></button>
                 </div>
-                
-                <Link to='/addStartup'>
-                    <div className=' h-8 sm:h-10 text-sm sm:text-base w-14 sm:w-20 bg-[#3f67ff] rounded-full p-1 sm:p-2 hover:cursor-pointer'>
-                        <p className='text-[#ffffff] text-center'>Add</p>
-                    </div>
-                </Link>
             </div>
         </div>
     </>

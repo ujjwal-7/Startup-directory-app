@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import AddStartup from "./pages/AddStartup";
 import Home from "./pages/Home";
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -13,7 +12,6 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route  path="/addStartup" element={<AddStartup />}/>
         <Route path="/search/:searchQuery" element={<SearchPage/>}/>
       </Routes>
       <ToastContainer/>

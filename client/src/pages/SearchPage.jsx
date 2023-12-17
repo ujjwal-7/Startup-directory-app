@@ -22,7 +22,7 @@ const SearchPage = () => {
         try {
 
             setLoading(true);
-            const res = await fetch(`http://localhost:8000/api/startup/search?searchQuery=${searchQuery}&page=${page}`);
+            const res = await fetch(`https://startup-directory-app.vercel.app/api/startup/search?searchQuery=${searchQuery}&page=${page}`);
             const data = await res.json();
 
             setLoading(false);
