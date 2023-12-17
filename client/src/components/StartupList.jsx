@@ -17,7 +17,7 @@ const StartupList = () => {
   const fetchData = async () => {
 
     try {
-      const res = await fetch(`http://localhost:8000/api/startup/allStartups?page=${page}&filter=${selectedFilter}`);
+      const res = await fetch(`https://startup-directory-app.vercel.app/api/startup/allStartups?page=${page}&filter=${selectedFilter}`);
       const data = await res.json();
       setStartups(data?.startups);
       setTotalPages(data?.totalPages);

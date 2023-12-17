@@ -44,7 +44,7 @@ const addStartup = (req, res) => {
         AmountInUSD: funding
     }
     
-    fs.readFile('./startups.json', (e, data) => {
+    fs.readFile('/temp/startups.json', (e, data) => {
 
         if(e) {
             return res.status(500).json({message: 'Interval server error'});
@@ -61,7 +61,7 @@ const addStartup = (req, res) => {
         }
 
         startups.push(newStartup);
-        fs.writeFile('./startups.json', JSON.stringify(startups), (e) => {
+        fs.writeFile('/temp/startups.json', JSON.stringify(startups), (e) => {
 
             if(e) {
                 return res.status(500).json({message: 'Interval server error'});

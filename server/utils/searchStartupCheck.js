@@ -1,6 +1,10 @@
 const searchStartupCheck = (startup, query) => {
 
+    if(startup.StartupName) {
+        
+    }
     if(startup.StartupName && startup.StartupName.toLowerCase().includes(query.toLowerCase())) {
+        console.log(startup.StartupName + '--' + query);
         return true
     }
 

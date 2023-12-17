@@ -11,7 +11,6 @@ const SearchPage = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [loading, setLoading] = useState(true);
     const { searchQuery } = useParams();
-    console.log(searchQuery);
 
     useEffect(() => {
 
